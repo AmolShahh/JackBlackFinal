@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "190495881121",
+    "project_id": "jackblack-5d962",
+    "storage_bucket": "jackblack-5d962.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190495881121:android:b11bf482d186941065fde0",
+        "android_client_info": {
+          "package_name": "com.example.jackblack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190495881121-3rc3v7djn95d8mpkdq2gt6lnttnrvese.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn3V-m02BSuaAOutsnr6L5d3VI6lEUm3k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190495881121-3rc3v7djn95d8mpkdq2gt6lnttnrvese.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
