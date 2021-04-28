@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JackBlack">
-        <activity android:name=".win_lose"></activity>
+        <activity android:name=".RepayDebtScreen"></activity>
+        <activity android:name=".win_lose" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,9 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeScreen"></activity>
-        <activity android:name=".GameLogic"></activity>
-        <activity android:name=".LoanScreen"></activity>
+        <activity android:name=".HomeScreen" />
+        <activity android:name=".GameLogic" />
+        <activity android:name=".LoanScreen" />
     </application>
 
 </manifest>

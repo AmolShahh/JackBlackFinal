@@ -13,13 +13,14 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GameLogic extends AppCompatActivity {
-
+    double cash, debt;
     //App view stuff
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.screen_play);
-
+        cash = getIntent().getDoubleExtra("cash", -1);
+        debt = getIntent().getDoubleExtra("debt", -1);
         //Deal cards upon coming to this actvity
         dealCards();
 
@@ -37,8 +38,9 @@ public class GameLogic extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Define a new intent to take us to Home Page (HomeScreen)
-                Intent intent = new Intent(GameLogic.this, MainActivity.class);
-
+                Intent intent = new Intent(GameLogic.this, HomeScreen.class);
+                intent.putExtra("cash",cash);
+                intent.putExtra("debt",debt);
                 //starts the HomeScreen Activity
                 GameLogic.this.startActivity(intent);
             }
@@ -247,7 +249,7 @@ public class GameLogic extends AppCompatActivity {
     // Logic for pushing (when you tie in hand value)
     public double push() {
         Log.i("push", "YOU TIED");
-        changeActivity("tie");
+        changeActivity("tie", cash, debt);
 
         // Return bet to player
         return bet;
@@ -256,7 +258,7 @@ public class GameLogic extends AppCompatActivity {
     //Logic for winning
     public double win() {
         Log.i("win", "YOU WIN");
-        changeActivity("win");
+        changeActivity("win",cash, debt);
 
         // Return 1.5 times bet to player
         return bet*1.5;
@@ -265,7 +267,7 @@ public class GameLogic extends AppCompatActivity {
     //Logic for losing
     public double lose() {
         Log.i("lose", "YOU LOSE");
-        changeActivity("lose");
+        changeActivity("lose", cash, debt);
         // Return 0 dollars to player
         return 0;
     }
@@ -286,8 +288,10 @@ public class GameLogic extends AppCompatActivity {
 
     //Put MoneyWinLossLogic stuff here
 
-    public void changeActivity(String result){
+    public void changeActivity(String result, double cash, double debt){
         Intent intent = new Intent(GameLogic.this, win_lose.class);
         intent.putExtra("result", result);
+        intent.putExtra("cash",cash);
+        intent.putExtra("debt",debt);
         startActivity(intent);
     }}
