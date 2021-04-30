@@ -18,8 +18,14 @@ public class RepayDebtScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repay_debt_screen);
 
-        cash = getIntent().getDoubleExtra("cash", -1);
-        debt = getIntent().getDoubleExtra("debt", -1);
+        cash = getIntent().getDoubleExtra("cash", 0);
+        debt = getIntent().getDoubleExtra("debt", 0);
+
+        TextView cashTV = findViewById(R.id.cashTextView2);
+        TextView debtTV = findViewById(R.id.debtTextView2);
+
+        cashTV.setText("Cash: $" + Math.round(cash));
+        debtTV.setText("Debt: $" + Math.round(debt));
 
         final Button backHome = findViewById(R.id.goHome2);
         backHome.setOnClickListener(new View.OnClickListener() {
@@ -55,14 +61,14 @@ public class RepayDebtScreen extends AppCompatActivity {
         if(loanValue.equals("")){
             loanValue = "0";
         }
-        if(Integer.valueOf(loanValue) < cash) {
+        if(Integer.valueOf(loanValue) < cash && Integer.valueOf(loanValue) <= debt+1) {
             double loanAmount = Integer.valueOf(loanValue);
             cash -= loanAmount;
             debt -= loanAmount;
             Log.i("manaans", String.valueOf(loanAmount));
         }
         else {
-            Log.i("manaans", "You are poor, not enough cash. come back when you have money pleb");
+            Log.i("manaans", "ERROR");
         }
 
     }

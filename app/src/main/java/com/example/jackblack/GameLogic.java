@@ -13,14 +13,17 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GameLogic extends AppCompatActivity {
-    double cash, debt;
+    double cash, debt, betAmount;
     //App view stuff
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.screen_play);
-        cash = getIntent().getDoubleExtra("cash", -1);
-        debt = getIntent().getDoubleExtra("debt", -1);
+        cash = getIntent().getDoubleExtra("cash", 0);
+        debt = getIntent().getDoubleExtra("debt", 0);
+        betAmount = getIntent().getIntExtra("bet", 0);
+
+
         //Deal cards upon coming to this actvity
         dealCards();
 
@@ -41,6 +44,7 @@ public class GameLogic extends AppCompatActivity {
                 Intent intent = new Intent(GameLogic.this, HomeScreen.class);
                 intent.putExtra("cash",cash);
                 intent.putExtra("debt",debt);
+                intent.putExtra("bet", betAmount);
                 //starts the HomeScreen Activity
                 GameLogic.this.startActivity(intent);
             }
@@ -293,5 +297,6 @@ public class GameLogic extends AppCompatActivity {
         intent.putExtra("result", result);
         intent.putExtra("cash",cash);
         intent.putExtra("debt",debt);
+        intent.putExtra("bet",betAmount);
         startActivity(intent);
     }}

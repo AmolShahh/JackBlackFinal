@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.048" />
 
     <TextView
-        android:id="@+id/cashTextView"
+        android:id="@+id/cashTV"
         android:layout_width="136dp"
         android:layout_height="32dp"
         android:layout_marginTop="32dp"

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JackBlack">
-        <activity android:name=".RepayDebtScreen"></activity>
+        <activity android:name=".BetScreen"></activity>
+        <activity android:name=".RepayDebtScreen" />
         <activity android:name=".win_lose" />
         <activity android:name=".MainActivity">
             <intent-filter>

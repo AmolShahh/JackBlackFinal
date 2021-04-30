@@ -10,60 +10,62 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class LoanScreen extends AppCompatActivity {
+public class BetScreen extends AppCompatActivity {
     double cash, debt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.screen_loan);
+        setContentView(R.layout.activity_bet_screen);
 
-       cash = getIntent().getDoubleExtra("cash", 0);
-       debt = getIntent().getDoubleExtra("debt", 0);
+        cash = getIntent().getDoubleExtra("cash", 0);
+        debt = getIntent().getDoubleExtra("debt", 0);
 
-        TextView cashTV = findViewById(R.id.cashTV);
-        TextView debtTV = findViewById(R.id.debtTextView);
+        TextView cashTV = findViewById(R.id.cashTV2);
+        TextView debtTV = findViewById(R.id.debtTextView3);
 
         cashTV.setText("Cash: $" + Math.round(cash));
         debtTV.setText("Debt: $" + Math.round(debt));
 
-        final Button backHome = findViewById(R.id.goHome);
+        final Button backHome = findViewById(R.id.goHome3);
         backHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Define a new intent to take us to Home Page (HomeScreen)
-                Intent intent = new Intent(LoanScreen.this, HomeScreen.class);
+                Intent intent = new Intent(BetScreen.this, HomeScreen.class);
                 intent.putExtra("cash",cash);
                 intent.putExtra("debt",debt);
                 //starts the HomeScreen Activity
-                LoanScreen.this.startActivity(intent);
+                BetScreen.this.startActivity(intent);
             }
         });
 
-        final Button takeLoan = findViewById(R.id.loanButton);
-        takeLoan.setOnClickListener(new View.OnClickListener() {
+        final Button betMoney = findViewById(R.id.betButton);
+        betMoney.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Define a new intent to take us to Home Page (HomeScreen)
-                getLoan();
-                Intent intent = new Intent(LoanScreen.this, HomeScreen.class);
+                int betAmount = Integer.valueOf(bet());
+                Intent intent = new Intent(BetScreen.this, GameLogic.class);
                 intent.putExtra("cash",cash);
                 intent.putExtra("debt",debt);
+                intent.putExtra("bet", betAmount);
+
                 //starts the HomeScreen Activity
-                LoanScreen.this.startActivity(intent);
+                BetScreen.this.startActivity(intent);
             }
         });
     }
 
-    public void getLoan(){
-        EditText loanView = findViewById(R.id.editTextNumber);
+    public String bet(){
+        EditText loanView = findViewById(R.id.editTextNumber3);
         String loanValue = String.valueOf(loanView.getText());
         if(loanValue.equals("")){
             loanValue = "0";
         }
-        double loanAmount = Integer.valueOf(loanValue);
-        cash += loanAmount;
-        debt += loanAmount*1.05;
-        Log.i("manaans", String.valueOf(loanAmount));
+        if(Double.valueOf(loanValue) > cash){
+    // send Toast message
+        }
+        return loanValue;
 
     }
 }

@@ -22,7 +22,7 @@ public class HomeScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Define a new intent to take us to Home Page (HomeScreen)
-                Intent intent = new Intent(HomeScreen.this, GameLogic.class);
+                Intent intent = new Intent(HomeScreen.this, BetScreen.class);
                 intent.putExtra("cash",cash);
                 intent.putExtra("debt",debt);
                 //starts the HomeScreen Activity
@@ -67,10 +67,10 @@ public class HomeScreen extends AppCompatActivity {
 
 
     public void updateFinances(){
-         cash = getIntent().getDoubleExtra("cash", -1);
-         debt = getIntent().getDoubleExtra("debt", -1);
+         cash = getIntent().getDoubleExtra("cash", 0);
+         debt = getIntent().getDoubleExtra("debt", 0);
 
-        TextView cashTV = findViewById(R.id.cashTextView);
+        TextView cashTV = findViewById(R.id.cashTV);
         TextView debtTV = findViewById(R.id.debtTextView);
 
         cashTV.setText("Cash: $" + Math.round(cash));
