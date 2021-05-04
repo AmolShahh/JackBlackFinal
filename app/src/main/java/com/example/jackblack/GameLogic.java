@@ -14,6 +14,7 @@ import java.util.Random;
 
 public class GameLogic extends AppCompatActivity {
     double cash, debt, betAmount;
+
     //App view stuff
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +43,8 @@ public class GameLogic extends AppCompatActivity {
             public void onClick(View v) {
                 // Define a new intent to take us to Home Page (HomeScreen)
                 Intent intent = new Intent(GameLogic.this, HomeScreen.class);
-                intent.putExtra("cash",cash);
-                intent.putExtra("debt",debt);
+                intent.putExtra("cash", cash);
+                intent.putExtra("debt", debt);
                 intent.putExtra("bet", betAmount);
                 //starts the HomeScreen Activity
                 GameLogic.this.startActivity(intent);
@@ -107,11 +108,9 @@ public class GameLogic extends AppCompatActivity {
             if (card.equals("A")) {
                 containsAce = true;
                 total = total + 11;
-            }
-            else if (card.equals("K") || card.equals("J") || card.equals("Q")) {
+            } else if (card.equals("K") || card.equals("J") || card.equals("Q")) {
                 total = total + 10;
-            }
-            else {
+            } else {
                 total = total + Integer.valueOf(card);
             }
         }
@@ -119,14 +118,20 @@ public class GameLogic extends AppCompatActivity {
             if (containsAce == true) {
                 total -= 10;
                 if (total > 21) {
+                    playerTotal = total;
+
                     lose();
                 }
             } else {
+                playerTotal = total;
+
                 lose();
             }
         }
 
         if (total == 21) {
+            playerTotal = total;
+            calculateDealerHand();
             win();
         }
 
@@ -143,11 +148,9 @@ public class GameLogic extends AppCompatActivity {
             if (card.equals("A")) {
                 containsAce = true;
                 total = total + 11;
-            }
-            else if (card.equals("K") || card.equals("J") || card.equals("Q")) {
+            } else if (card.equals("K") || card.equals("J") || card.equals("Q")) {
                 total = total + 10;
-            }
-            else {
+            } else {
                 total = total + Integer.valueOf(card);
             }
         }
@@ -155,15 +158,21 @@ public class GameLogic extends AppCompatActivity {
             if (containsAce == true) {
                 total -= 10;
                 if (total > 21) {
-                    lose();
+                    dealerTotal = total;
+
+                    win();
                 }
             } else {
-                lose();
+                dealerTotal = total;
+
+                win();
             }
         }
 
         if (total == 21) {
-            win();
+            dealerTotal = total;
+            calculatePlayerHand();
+            lose();
         }
 
         dealerTotal = total;
@@ -173,10 +182,16 @@ public class GameLogic extends AppCompatActivity {
     public void calculateCardValues() {
         calculateDealerHand();
         calculatePlayerHand();
+
+        TextView pTotal = (TextView) findViewById(R.id.playerTotal);
+        TextView dTotal = (TextView) findViewById(R.id.dealerTotal);
+
+        pTotal.setText(String.valueOf("Player Total: " + playerTotal));
+        dTotal.setText(String.valueOf("Dealer Total: ???"));
     }
 
 
-        // Deals the cards to both players
+    // Deals the cards to both players
     public void dealCards() {
         createDeck();
         // Do it twice
@@ -223,7 +238,7 @@ public class GameLogic extends AppCompatActivity {
     //After player stands, the dealer will hit until 17 or higher
     //Dealer stands after 17 or busts
     public void dealerLogic() {
-        while(dealerTotal < 17){
+        while (dealerTotal < 17) {
             int newCardIndex = rng.nextInt(deck.size() - 1);
             dealerHand.add(deck.get(newCardIndex));
             deck.remove(newCardIndex);
@@ -234,19 +249,16 @@ public class GameLogic extends AppCompatActivity {
 
     //Logic for standing (not drawing any card)
     public void stand() {
-       dealerLogic();
-       if(playerTotal > dealerTotal && playerTotal <= 21){
-           win();
-       }
-       else if(playerTotal < dealerTotal && dealerTotal <= 21){
-           lose();
-       }
-       else if(playerTotal == dealerTotal){
-           push();
-       }
-       else{
-           lose();
-       }
+        dealerLogic();
+        if (playerTotal > dealerTotal && playerTotal <= 21) {
+            win();
+        } else if (playerTotal < dealerTotal && dealerTotal <= 21) {
+            lose();
+        } else if (playerTotal == dealerTotal) {
+            push();
+        } else {
+            lose();
+        }
         Log.i("phand", playerHand.toString());
     }
 
@@ -262,10 +274,10 @@ public class GameLogic extends AppCompatActivity {
     //Logic for winning
     public double win() {
         Log.i("win", "YOU WIN");
-        changeActivity("win",cash, debt);
+        changeActivity("win", cash, debt);
 
         // Return 1.5 times bet to player
-        return bet*1.5;
+        return bet * 1.5;
     }
 
     //Logic for losing
@@ -281,9 +293,9 @@ public class GameLogic extends AppCompatActivity {
 
     }
 
-    public String displayHands(ArrayList hand){
+    public String displayHands(ArrayList hand) {
         String output = "";
-        for(int i = 0; i <= hand.size(); i++){
+        for (int i = 0; i <= hand.size(); i++) {
             output += hand.get(i);
             output += " ";
         }
@@ -292,11 +304,16 @@ public class GameLogic extends AppCompatActivity {
 
     //Put MoneyWinLossLogic stuff here
 
-    public void changeActivity(String result, double cash, double debt){
+    public void changeActivity(String result, double cash, double debt) {
         Intent intent = new Intent(GameLogic.this, win_lose.class);
         intent.putExtra("result", result);
-        intent.putExtra("cash",cash);
-        intent.putExtra("debt",debt);
-        intent.putExtra("bet",betAmount);
+        intent.putExtra("cash", cash);
+        intent.putExtra("debt", debt);
+        intent.putExtra("bet", betAmount);
+        intent.putExtra("pHand", playerHand);
+        intent.putExtra("dHand", dealerHand);
+        intent.putExtra("pTotal", playerTotal);
+        intent.putExtra("dTotal", dealerTotal);
         startActivity(intent);
-    }}
+    }
+}

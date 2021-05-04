@@ -9,9 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class BetScreen extends AppCompatActivity {
     double cash, debt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +34,8 @@ public class BetScreen extends AppCompatActivity {
             public void onClick(View v) {
                 // Define a new intent to take us to Home Page (HomeScreen)
                 Intent intent = new Intent(BetScreen.this, HomeScreen.class);
-                intent.putExtra("cash",cash);
-                intent.putExtra("debt",debt);
+                intent.putExtra("cash", cash);
+                intent.putExtra("debt", debt);
                 //starts the HomeScreen Activity
                 BetScreen.this.startActivity(intent);
             }
@@ -45,25 +47,32 @@ public class BetScreen extends AppCompatActivity {
             public void onClick(View v) {
                 // Define a new intent to take us to Home Page (HomeScreen)
                 int betAmount = Integer.valueOf(bet());
-                Intent intent = new Intent(BetScreen.this, GameLogic.class);
-                intent.putExtra("cash",cash);
-                intent.putExtra("debt",debt);
-                intent.putExtra("bet", betAmount);
+                if (betAmount == -1) {
 
-                //starts the HomeScreen Activity
-                BetScreen.this.startActivity(intent);
+                } else {
+                    Intent intent = new Intent(BetScreen.this, GameLogic.class);
+                    intent.putExtra("cash", cash);
+                    intent.putExtra("debt", debt);
+                    intent.putExtra("bet", betAmount);
+
+                    //starts the HomeScreen Activity
+                    BetScreen.this.startActivity(intent);
+                }
             }
         });
     }
 
-    public String bet(){
+    public String bet() {
         EditText loanView = findViewById(R.id.editTextNumber3);
         String loanValue = String.valueOf(loanView.getText());
-        if(loanValue.equals("")){
+        if (loanValue.equals("")) {
             loanValue = "0";
         }
-        if(Double.valueOf(loanValue) > cash){
-    // send Toast message
+        if (Double.valueOf(loanValue) > cash) {
+            Toast toast = Toast.makeText(getApplicationContext(), "WTF u doin", Toast.LENGTH_SHORT);
+
+            toast.show();
+            loanValue = "-1";
         }
         return loanValue;
 

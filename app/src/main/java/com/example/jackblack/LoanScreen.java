@@ -12,13 +12,14 @@ import android.widget.TextView;
 
 public class LoanScreen extends AppCompatActivity {
     double cash, debt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.screen_loan);
 
-       cash = getIntent().getDoubleExtra("cash", 0);
-       debt = getIntent().getDoubleExtra("debt", 0);
+        cash = getIntent().getDoubleExtra("cash", 0);
+        debt = getIntent().getDoubleExtra("debt", 0);
 
         TextView cashTV = findViewById(R.id.cashTV);
         TextView debtTV = findViewById(R.id.debtTextView);
@@ -32,8 +33,8 @@ public class LoanScreen extends AppCompatActivity {
             public void onClick(View v) {
                 // Define a new intent to take us to Home Page (HomeScreen)
                 Intent intent = new Intent(LoanScreen.this, HomeScreen.class);
-                intent.putExtra("cash",cash);
-                intent.putExtra("debt",debt);
+                intent.putExtra("cash", cash);
+                intent.putExtra("debt", debt);
                 //starts the HomeScreen Activity
                 LoanScreen.this.startActivity(intent);
             }
@@ -46,23 +47,23 @@ public class LoanScreen extends AppCompatActivity {
                 // Define a new intent to take us to Home Page (HomeScreen)
                 getLoan();
                 Intent intent = new Intent(LoanScreen.this, HomeScreen.class);
-                intent.putExtra("cash",cash);
-                intent.putExtra("debt",debt);
+                intent.putExtra("cash", cash);
+                intent.putExtra("debt", debt);
                 //starts the HomeScreen Activity
                 LoanScreen.this.startActivity(intent);
             }
         });
     }
 
-    public void getLoan(){
+    public void getLoan() {
         EditText loanView = findViewById(R.id.editTextNumber);
         String loanValue = String.valueOf(loanView.getText());
-        if(loanValue.equals("")){
+        if (loanValue.equals("")) {
             loanValue = "0";
         }
         double loanAmount = Integer.valueOf(loanValue);
         cash += loanAmount;
-        debt += loanAmount*1.05;
+        debt += loanAmount * 1.05;
         Log.i("manaans", String.valueOf(loanAmount));
 
     }
