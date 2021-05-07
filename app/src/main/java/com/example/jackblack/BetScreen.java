@@ -70,7 +70,7 @@ public class BetScreen extends AppCompatActivity {
         if (loanValue.equals("")) {
             loanValue = "0";
         }
-        if (Double.valueOf(loanValue) > cash) {
+        if (Double.valueOf(loanValue)  > cash + 1) {
             Toast toast = Toast.makeText(getApplicationContext(), "You don't have this much money", Toast.LENGTH_SHORT);
 
             toast.show();
