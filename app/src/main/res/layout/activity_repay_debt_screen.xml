@@ -6,11 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".RepayDebtScreen">
 
+    <ImageView
+        android:id="@+id/beautifulMan4"
+        android:layout_width="129dp"
+        android:layout_height="142dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="276dp"
+        android:layout_marginRight="276dp"
+        android:fontFamily="@font/amarante"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/jackblacklogo" />
+
     <TextView
         android:id="@+id/cashTextView2"
         android:layout_width="136dp"
         android:layout_height="32dp"
         android:layout_marginTop="32dp"
+        android:fontFamily="@font/amarante"
         android:layout_marginEnd="44dp"
         android:layout_marginRight="44dp"
         android:text="Cash: $ @cash"
@@ -20,13 +33,15 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="212dp"
-        android:layout_marginEnd="96dp"
-        android:layout_marginRight="96dp"
+        android:layout_width="308dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="252dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginRight="52dp"
+        android:fontFamily="@font/amarante"
+        android:gravity="center"
         android:text="Amount to Repay"
-        android:textSize="30sp"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,30 +51,21 @@
         android:layout_height="32dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="44dp"
+        android:fontFamily="@font/amarante"
         android:layout_marginRight="44dp"
         android:text="Debt: $ @debt"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/logOutButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="32dp"
-        android:text="Log Out"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/editTextNumber2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginBottom="340dp"
+        android:layout_width="245dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="312dp"
+        android:fontFamily="@font/amarante"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -67,23 +73,25 @@
 
     <Button
         android:id="@+id/repayDebtButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="128dp"
-        android:layout_marginRight="128dp"
-        android:layout_marginBottom="256dp"
+        android:layout_width="213dp"
+        android:layout_height="82dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="96dp"
+        android:layout_marginBottom="180dp"
+        android:fontFamily="@font/amarante"
         android:text="Repay Debt"
-        android:textSize="20sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/goHome2"
-        android:layout_width="226dp"
-        android:layout_height="81dp"
-        android:layout_marginEnd="88dp"
-        android:layout_marginRight="88dp"
-        android:layout_marginBottom="112dp"
+        android:layout_width="181dp"
+        android:layout_height="62dp"
+        android:layout_marginEnd="112dp"
+        android:layout_marginRight="112dp"
+        android:layout_marginBottom="88dp"
+        android:fontFamily="@font/amarante"
         android:text="Home"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"

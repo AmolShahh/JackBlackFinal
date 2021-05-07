@@ -6,14 +6,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/beautifulMan8"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:fontFamily="@font/amarante"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@mipmap/jackblacklogo" />
+
     <TextView
         android:id="@+id/dealerHandTextView"
         android:layout_width="208dp"
         android:layout_height="113dp"
         android:layout_marginTop="120dp"
         android:layout_marginEnd="100dp"
+        android:fontFamily="@font/amarante"
         android:layout_marginRight="100dp"
         android:text="Dealer Hand"
+        android:textSize="20sp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,11 +39,14 @@
         android:layout_height="113dp"
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
+        android:fontFamily="@font/amarante"
+        android:gravity="center"
         android:text="Player Hand"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.747" />
+        app:layout_constraintVertical_bias="0.69" />
 
     <Button
         android:id="@+id/backHome"
@@ -36,7 +55,9 @@
         android:layout_marginEnd="288dp"
         android:layout_marginRight="288dp"
         android:layout_marginBottom="640dp"
-        android:text="Button"
+        android:fontFamily="@font/amarante"
+        android:text="HOME"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -44,6 +65,7 @@
         android:id="@+id/hit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/amarante"
         android:layout_marginStart="92dp"
         android:layout_marginLeft="92dp"
         android:layout_marginBottom="76dp"
@@ -58,6 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="232dp"
         android:layout_marginLeft="232dp"
+        android:fontFamily="@font/amarante"
         android:layout_marginBottom="76dp"
         android:text="STAND"
         android:textSize="20sp"
@@ -71,7 +94,9 @@
         android:layout_marginTop="252dp"
         android:layout_marginEnd="116dp"
         android:layout_marginRight="116dp"
+        android:fontFamily="@font/amarante"
         android:text="DEALER TOTAL:"
+        android:gravity="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -80,11 +105,14 @@
         android:id="@+id/playerTotal"
         android:layout_width="173dp"
         android:layout_height="33dp"
+        android:fontFamily="@font/amarante"
         android:layout_marginTop="380dp"
         android:layout_marginEnd="116dp"
         android:layout_marginRight="116dp"
         android:text="PLAYER TOTAL:"
+        android:gravity="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

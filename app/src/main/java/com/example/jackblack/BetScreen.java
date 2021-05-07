@@ -47,7 +47,9 @@ public class BetScreen extends AppCompatActivity {
             public void onClick(View v) {
                 // Define a new intent to take us to Home Page (HomeScreen)
                 int betAmount = Integer.valueOf(bet());
-                if (betAmount == -1) {
+                Log.i("manas", String.valueOf(betAmount));
+                Log.i("manas", String.valueOf(cash));
+                if (betAmount == 0 || betAmount > cash) {
 
                 } else {
                     Intent intent = new Intent(BetScreen.this, GameLogic.class);
@@ -69,10 +71,15 @@ public class BetScreen extends AppCompatActivity {
             loanValue = "0";
         }
         if (Double.valueOf(loanValue) > cash) {
-            Toast toast = Toast.makeText(getApplicationContext(), "WTF u doin", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(), "You don't have this much money", Toast.LENGTH_SHORT);
 
             toast.show();
-            loanValue = "-1";
+            //loanValue = "-1";
+        }
+        if (Double.valueOf(loanValue) == 0) {
+            Toast toast2 = Toast.makeText(getApplicationContext(), "You need to bet to play", Toast.LENGTH_SHORT);
+
+            toast2.show();
         }
         return loanValue;
 

@@ -13,6 +13,7 @@
         android:ems="10"
         android:inputType="textPassword"
         tools:layout_editor_absoluteX="100dp"
+        android:fontFamily="@font/amarante"
         tools:layout_editor_absoluteY="439dp" />
 
     <EditText
@@ -22,12 +23,14 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         tools:layout_editor_absoluteX="100dp"
+        android:fontFamily="@font/amarante"
         tools:layout_editor_absoluteY="343dp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="106dp"
         android:layout_height="60dp"
+        android:fontFamily="@font/amarante"
         android:text="Button"
         tools:layout_editor_absoluteX="152dp"
         tools:layout_editor_absoluteY="538dp" />
@@ -37,6 +40,7 @@
         android:layout_width="275dp"
         android:layout_height="78dp"
         android:gravity="center"
+        android:fontFamily="@font/amarante"
         android:text="JackBlack"
         android:textSize="50sp"
         tools:layout_editor_absoluteX="68dp"
