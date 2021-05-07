@@ -34,7 +34,11 @@ public class GameLogic extends AppCompatActivity {
 
         //Set dealer hand text view to dealer hand
         TextView dealerHandTextView = (TextView) findViewById(R.id.dealerHandTextView);
-        dealerHandTextView.setText(dealerHand.toString());
+        ArrayList<String> displayDealerHand = new ArrayList<String>();
+        displayDealerHand.add((String) dealerHand.get(0));
+        displayDealerHand.add((String) dealerHand.get(1));
+        displayDealerHand.set(1, "???");
+        dealerHandTextView.setText(displayDealerHand.toString());
 
         //Testing button goes to home screen intent
         final Button backHome = findViewById(R.id.backHome);
@@ -250,15 +254,15 @@ public class GameLogic extends AppCompatActivity {
     //Logic for standing (not drawing any card)
     public void stand() {
         dealerLogic();
+
         if (playerTotal > dealerTotal && playerTotal <= 21) {
             win();
         } else if (playerTotal < dealerTotal && dealerTotal <= 21) {
             lose();
         } else if (playerTotal == dealerTotal) {
             push();
-        } else {
-            lose();
         }
+
         Log.i("phand", playerHand.toString());
     }
 

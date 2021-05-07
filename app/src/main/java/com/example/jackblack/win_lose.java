@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -28,12 +29,23 @@ public class win_lose extends AppCompatActivity {
         int dealerTotal = getIntent().getIntExtra("dTotal", 0);
 
         TextView winLoseTextView = (TextView) findViewById(R.id.winLoseTextview);
-        winLoseTextView.setText(result);
+        winLoseTextView.setText("You " + result + "!");
         Log.i("fatal", String.valueOf(pHand));
         TextView playerHandTextView = (TextView) findViewById(R.id.playerHandTextView2);
         playerHandTextView.setText(pHand.toString());
         TextView pTotal = (TextView) findViewById(R.id.playerTotal2);
         TextView dTotal = (TextView) findViewById(R.id.dealerTotal2);
+
+        ImageView jackBlack = (ImageView) findViewById(R.id.jackBlack);
+        if(result.equals("win")){
+            jackBlack.setImageResource(R.mipmap.jbp5);
+        }
+        else if (result.equals("lose")){
+            jackBlack.setImageResource(R.mipmap.jpb6);
+        }
+        else {
+            jackBlack.setImageResource(R.mipmap.jbp7);
+        }
 
         pTotal.setText(String.valueOf("Player Total: " + playerTotal));
         dTotal.setText(String.valueOf("Dealer Total: " + dealerTotal));
