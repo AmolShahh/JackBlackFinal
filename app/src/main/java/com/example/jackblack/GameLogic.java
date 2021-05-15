@@ -30,7 +30,8 @@ public class GameLogic extends AppCompatActivity {
 
         //Set player hand text view to player hand
         TextView playerHandTextView = (TextView) findViewById(R.id.playerHandTextView);
-        playerHandTextView.setText(playerHand.toString());
+        String phandDisplay = prettifyCards();
+        playerHandTextView.setText(phandDisplay.toString());
 
         //Set dealer hand text view to dealer hand
         TextView dealerHandTextView = (TextView) findViewById(R.id.dealerHandTextView);
@@ -38,7 +39,8 @@ public class GameLogic extends AppCompatActivity {
         displayDealerHand.add((String) dealerHand.get(0));
         displayDealerHand.add((String) dealerHand.get(1));
         displayDealerHand.set(1, "???");
-        dealerHandTextView.setText(displayDealerHand.toString());
+        String dhandDisplay = prettifyDealerCards();
+        dealerHandTextView.setText(dhandDisplay);
 
         //Testing button goes to home screen intent
         final Button backHome = findViewById(R.id.backHome);
@@ -60,7 +62,8 @@ public class GameLogic extends AppCompatActivity {
             public void onClick(View v) {
                 // Perform hit function on click
                 hit();
-                playerHandTextView.setText(playerHand.toString());
+                String phandDisplay = prettifyCards();
+                playerHandTextView.setText(phandDisplay);
             }
         });
 
@@ -69,8 +72,7 @@ public class GameLogic extends AppCompatActivity {
             public void onClick(View v) {
                 // Perform hit function on click
                 stand();
-                playerHandTextView.setText(playerHand.toString());
-                dealerHandTextView.setText(dealerHand.toString());
+
             }
         });
 
@@ -187,6 +189,7 @@ public class GameLogic extends AppCompatActivity {
         calculateDealerHand();
         calculatePlayerHand();
 
+
         TextView pTotal = (TextView) findViewById(R.id.playerTotal);
         TextView dTotal = (TextView) findViewById(R.id.dealerTotal);
 
@@ -214,17 +217,7 @@ public class GameLogic extends AppCompatActivity {
     }
 
 
-    // Starts game by creating deck and dealing out cards
-    //Calculates value of each card in hand
-    //Above 3 functions sink into here
-    public void startGame() {
 
-    }
-
-    //Gets amount player bets
-    public void getBet() {
-
-    }
 
     //Logic for hitting (getting one more card)
     public void hit() {
@@ -292,19 +285,8 @@ public class GameLogic extends AppCompatActivity {
         return 0;
     }
 
-    //Going back to HomePage
-    public void goHome() {
 
-    }
 
-    public String displayHands(ArrayList hand) {
-        String output = "";
-        for (int i = 0; i <= hand.size(); i++) {
-            output += hand.get(i);
-            output += " ";
-        }
-        return output;
-    }
 
     //Put MoneyWinLossLogic stuff here
 
@@ -319,5 +301,24 @@ public class GameLogic extends AppCompatActivity {
         intent.putExtra("pTotal", playerTotal);
         intent.putExtra("dTotal", dealerTotal);
         startActivity(intent);
+    }
+
+
+    public String prettifyCards(){
+        String displayedPlayerHand = "";
+        for(Object s: playerHand){
+            s = s.toString();
+            displayedPlayerHand = displayedPlayerHand + " " + s;
+        }
+        return displayedPlayerHand;
+    }
+
+    public String prettifyDealerCards(){
+        String displayedDealerHand = "";
+        for(int i = 0; i < dealerHand.size() - 1; i++){
+            displayedDealerHand = displayedDealerHand + " " + dealerHand.get(i);
+        }
+        displayedDealerHand = displayedDealerHand + " ???" ;
+        return displayedDealerHand;
     }
 }

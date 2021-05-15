@@ -4,70 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1b1717"
     tools:context=".RepayDebtScreen">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="320dp">
 
-    <ImageView
+        <TextView
+            android:id="@+id/cashTextView2"
+            android:layout_width="136dp"
+            android:layout_height="32dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/amarante"
+            android:text="Cash: $ @cash"
+            android:textColor="#ce1212"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/debtTextView2"
+            android:layout_width="136dp"
+            android:layout_height="32dp"
+            android:layout_gravity="right"
+            android:fontFamily="@font/amarante"
+            android:text="Debt: $ @debt"
+            android:textColor="#ce1212"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
         android:id="@+id/beautifulMan4"
         android:layout_width="166dp"
         android:layout_height="147dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="212dp"
-        android:layout_marginRight="212dp"
+        android:layout_gravity="center"
+            android:layout_marginTop="20dp"
         android:fontFamily="@font/amarante"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/jackblackpic2" />
 
-    <TextView
-        android:id="@+id/cashTextView2"
-        android:layout_width="136dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:fontFamily="@font/amarante"
-        android:text="Cash: $ @cash"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
+        <TextView
         android:id="@+id/textView2"
         android:layout_width="321dp"
         android:layout_height="66dp"
-        android:layout_marginTop="244dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
+        android:layout_gravity="center"
+            android:layout_marginTop="30dp"
         android:fontFamily="@font/amarante"
         android:gravity="center"
         android:text="Amount to Repay"
         android:textSize="40sp"
+        android:textColor="#ce1212"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/debtTextView2"
-        android:layout_width="136dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:fontFamily="@font/amarante"
-        android:text="Debt: $ @debt"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
+        <EditText
         android:id="@+id/editTextNumber2"
         android:layout_width="245dp"
         android:layout_height="64dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginBottom="312dp"
+        android:layout_gravity="center"
         android:ems="10"
         android:fontFamily="@font/amarante"
         android:gravity="center"
+        android:textColor="#ce1212"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -76,12 +80,14 @@
         android:id="@+id/repayDebtButton"
         android:layout_width="213dp"
         android:layout_height="82dp"
-        android:layout_marginEnd="96dp"
-        android:layout_marginRight="96dp"
-        android:layout_marginBottom="180dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/amarante"
         android:text="Repay Debt"
+        android:textColor="#1b1717"
         android:textSize="30sp"
+        app:backgroundTint="#810000"
+        app:cornerRadius="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -89,12 +95,16 @@
         android:id="@+id/goHome2"
         android:layout_width="181dp"
         android:layout_height="62dp"
-        android:layout_marginEnd="112dp"
-        android:layout_marginRight="112dp"
-        android:layout_marginBottom="88dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/amarante"
         android:text="Home"
+        android:textColor="#1b1717"
         android:textSize="30sp"
+        app:backgroundTint="#810000"
+        app:cornerRadius="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

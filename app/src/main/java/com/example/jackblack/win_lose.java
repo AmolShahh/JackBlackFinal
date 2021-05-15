@@ -31,8 +31,9 @@ public class win_lose extends AppCompatActivity {
         TextView winLoseTextView = (TextView) findViewById(R.id.winLoseTextview);
         winLoseTextView.setText("You " + result + "!");
         Log.i("fatal", String.valueOf(pHand));
+        String displayedPHand = prettifyCards(pHand);
         TextView playerHandTextView = (TextView) findViewById(R.id.playerHandTextView2);
-        playerHandTextView.setText(pHand.toString());
+        playerHandTextView.setText(displayedPHand);
         TextView pTotal = (TextView) findViewById(R.id.playerTotal2);
         TextView dTotal = (TextView) findViewById(R.id.dealerTotal2);
 
@@ -50,8 +51,9 @@ public class win_lose extends AppCompatActivity {
         pTotal.setText(String.valueOf("Player Total: " + playerTotal));
         dTotal.setText(String.valueOf("Dealer Total: " + dealerTotal));
         //Set dealer hand text view to dealer hand
+        String displayedDHand = prettifyCards(dHand);
         TextView dealerHandTextView = (TextView) findViewById(R.id.dealerHandTextView2);
-        dealerHandTextView.setText(dHand.toString());
+        dealerHandTextView.setText(displayedDHand);
 
         Log.i("bet", String.valueOf(betAmount));
 
@@ -77,6 +79,15 @@ public class win_lose extends AppCompatActivity {
                 win_lose.this.startActivity(intent);
             }
         });
+    }
+
+    public String prettifyCards(ArrayList<String> hand){
+        String displayedPlayerHand = "";
+        for(Object s: hand){
+            s = s.toString();
+            displayedPlayerHand = displayedPlayerHand + " " + s;
+        }
+        return displayedPlayerHand;
     }
 
 

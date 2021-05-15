@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class RepayDebtScreen extends AppCompatActivity {
     double cash, debt;
@@ -45,17 +46,25 @@ public class RepayDebtScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Define a new intent to take us to Home Page (HomeScreen)
-                getRepayment();
-                Intent intent = new Intent(RepayDebtScreen.this, HomeScreen.class);
-                intent.putExtra("cash",cash);
-                intent.putExtra("debt",debt);
+                boolean repaymentWorked = getRepayment();
+                if(repaymentWorked) {
+                    Intent intent = new Intent(RepayDebtScreen.this, HomeScreen.class);
+                    intent.putExtra("cash", cash);
+                    intent.putExtra("debt", debt);
+
                 //starts the HomeScreen Activity
                 RepayDebtScreen.this.startActivity(intent);
+                }
+                else {
+                    Toast toast = Toast.makeText(getApplicationContext(), "You don't have this much debt", Toast.LENGTH_SHORT);
+
+                    toast.show();
+                }
             }
         });
     }
 
-    public void getRepayment(){
+    public boolean getRepayment(){
         EditText loanView = findViewById(R.id.editTextNumber2);
         String loanValue = String.valueOf(loanView.getText());
         if(loanValue.equals("")){
@@ -66,9 +75,11 @@ public class RepayDebtScreen extends AppCompatActivity {
             cash -= loanAmount;
             debt -= loanAmount;
             Log.i("manaans", String.valueOf(loanAmount));
+            return true;
         }
         else {
             Log.i("manaans", "ERROR");
+            return false;
         }
 
     }

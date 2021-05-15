@@ -4,102 +4,131 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#1b1717"
     android:layout_height="match_parent">
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="320dp">
+
+        <Button
+            android:id="@+id/backHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="90dp"
+            android:fontFamily="@font/amarante"
+            android:gravity="center"
+            android:text="HOME"
+            android:textColor="#1b1717"
+            android:textSize="20sp"
+            app:backgroundTint="#810000"
+            app:cornerRadius="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
         android:id="@+id/dealerHandTextView"
-        android:layout_width="208dp"
-        android:layout_height="113dp"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:fontFamily="@font/amarante"
         android:gravity="center"
+            android:layout_marginBottom="25dp"
         android:text="Dealer Hand"
+        android:textColor="#eeebdd"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/playerHandTextView"
-        android:layout_width="208dp"
-        android:layout_height="113dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:fontFamily="@font/amarante"
-        android:gravity="center"
-        android:text="Player Hand"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        <TextView
+            android:id="@+id/dealerTotal"
+            android:layout_width="173dp"
+            android:layout_height="33dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/amarante"
+            android:gravity="center"
+            android:layout_marginBottom="100dp"
+            android:text="DEALER TOTAL:"
+            android:textColor="#ce1212"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/backHome"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/playerTotal"
+            android:layout_width="173dp"
+            android:layout_height="33dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/amarante"
+            android:gravity="center"
+            android:layout_marginBottom="25dp"
+            android:text="PLAYER TOTAL:"
+            android:textColor="#ce1212"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/playerHandTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/amarante"
+            android:gravity="center"
+            android:text="Player Hand"
+            android:layout_marginBottom="140dp"
+            android:textColor="#eeebdd"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.7" />
+
+        <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="288dp"
-        android:layout_marginRight="288dp"
-        android:layout_marginBottom="612dp"
-        android:fontFamily="@font/amarante"
-        android:gravity="center"
-        android:text="HOME"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:orientation="horizontal"
+            android:gravity="center"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="320dp">
 
-    <Button
-        android:id="@+id/hit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginBottom="76dp"
-        android:fontFamily="@font/amarante"
-        android:text="HIT"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            <Button
+                android:id="@+id/hit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/amarante"
+                android:text="HIT"
+                android:textColor="#1b1717"
+                android:textSize="20sp"
+                app:backgroundTint="#810000"
+                app:cornerRadius="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/stand"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="220dp"
-        android:layout_marginLeft="220dp"
-        android:layout_marginBottom="76dp"
-        android:fontFamily="@font/amarante"
-        android:text="STAND"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            <Button
+                android:id="@+id/stand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="35dp"
+                android:fontFamily="@font/amarante"
+                android:text="STAND"
+                android:textColor="#1b1717"
+                android:textSize="20sp"
+                app:backgroundTint="#810000"
+                app:cornerRadius="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/dealerTotal"
-        android:layout_width="173dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="252dp"
-        android:layout_marginEnd="116dp"
-        android:layout_marginRight="116dp"
-        android:fontFamily="@font/amarante"
-        android:text="DEALER TOTAL:"
-        android:gravity="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/playerTotal"
-        android:layout_width="173dp"
-        android:layout_height="33dp"
-        android:fontFamily="@font/amarante"
-        android:layout_marginTop="380dp"
-        android:layout_marginEnd="116dp"
-        android:layout_marginRight="116dp"
-        android:text="PLAYER TOTAL:"
-        android:gravity="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

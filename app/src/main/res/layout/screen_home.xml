@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:background="#1b1717">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="320dp">
     <TextView
         android:id="@+id/cashTV"
         android:layout_width="136dp"
         android:layout_height="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/amarante"
         android:text="Cash: $ @cash"
+        android:textColor="#ce1212"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,25 +28,38 @@
         android:id="@+id/debtTextView"
         android:layout_width="136dp"
         android:layout_height="32dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
+        android:layout_gravity="right"
         android:fontFamily="@font/amarante"
         android:text="Debt: $ @debt"
+        android:textColor="#ce1212"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+        <ImageView
+            android:id="@+id/beautifulMan"
+            android:layout_width="141dp"
+            android:layout_height="162dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/amarante"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/jackblacklogo" />
+
+        <Button
         android:id="@+id/loanButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="132dp"
-        android:layout_marginRight="132dp"
-        android:layout_marginBottom="320dp"
+        android:layout_gravity="center"
         android:fontFamily="@font/amarante"
         android:text="Take Loan"
+            android:layout_marginBottom="20dp"
+        android:textColor="#1b1717"
         android:textSize="20sp"
+        app:backgroundTint="#810000"
+        app:cornerRadius="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -49,37 +67,30 @@
         android:id="@+id/repayButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="128dp"
-        android:layout_marginRight="128dp"
-        android:layout_marginBottom="248dp"
+        android:layout_gravity="center"
         android:fontFamily="@font/amarante"
         android:text="Repay Debt"
+        android:layout_marginBottom="30dp"
+        android:textColor="#1b1717"
         android:textSize="20sp"
+        app:backgroundTint="#810000"
+        app:cornerRadius="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
+        <Button
         android:id="@+id/playButton"
         android:layout_width="226dp"
         android:layout_height="81dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
-        android:layout_marginBottom="108dp"
+        android:layout_gravity="center"
         android:fontFamily="@font/amarante"
         android:text="Play"
+        android:textColor="#1b1717"
         android:textSize="30sp"
+        app:backgroundTint="#810000"
+        app:cornerRadius="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/beautifulMan"
-        android:layout_width="141dp"
-        android:layout_height="162dp"
-        android:layout_marginTop="112dp"
-        android:layout_marginEnd="132dp"
-        android:layout_marginRight="132dp"
-        android:fontFamily="@font/amarante"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/jackblacklogo" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
